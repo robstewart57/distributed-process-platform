@@ -11,6 +11,7 @@ import Control.Applicative
 import Control.Distributed.Process hiding (call)
 import Control.Distributed.Process.Platform.GenProcess
 import Control.Distributed.Process.Platform.Time
+import Control.Distributed.Process.Platform
 
 import Data.Binary (Binary(..))
 import Data.Typeable (Typeable)
