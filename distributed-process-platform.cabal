@@ -28,7 +28,7 @@ library
                    derive,
                    binary,
                    mtl,
-                   containers >= 0.4 && < 0.6,
+                   containers >= 0.5 && < 0.6,
                    stm >= 2.3 && < 2.5,
                    transformers
   hs-source-dirs:   src
@@ -41,6 +41,7 @@ library
                    Control.Distributed.Process.Platform.Call,
                    Control.Distributed.Process.Platform.GenProcess,
                    Control.Distributed.Process.Platform.GenServer,
+                   Control.Distributed.Process.Platform.Supervisor,
                    Control.Distributed.Process.Platform.Test,
                    Control.Distributed.Process.Platform.Time,
                    Control.Distributed.Process.Platform.Timer
@@ -57,7 +58,7 @@ test-suite TimerTests
                    ansi-terminal >= 0.5 && < 0.6,
                    distributed-process,
                    derive,
-                   containers >= 0.4 && < 0.6,
+                   containers >= 0.5 && < 0.6,
                    network-transport >= 0.3 && < 0.4,
                    mtl,
                    network-transport-tcp >= 0.3 && < 0.4,
@@ -95,7 +96,7 @@ test-suite PrimitivesTests
                    derive,
                    network-transport >= 0.3 && < 0.4,
                    mtl,
-                   containers >= 0.4 && < 0.6,
+                   containers >= 0.5 && < 0.6,
                    network-transport-tcp >= 0.3 && < 0.4,
                    binary >= 0.5 && < 0.7,
                    network >= 2.3 && < 2.5,
@@ -119,7 +120,7 @@ test-suite PrimitivesTests
   extensions:      CPP
   main-is:         TestPrimitives.hs
 
-test-suite Tests
+test-suite AsyncTests
   type:            exitcode-stdio-1.0
   x-uses-tf:       true
   build-depends:
@@ -127,6 +128,7 @@ test-suite Tests
                    ansi-terminal >= 0.5 && < 0.6,
                    distributed-process,
                    derive,
+                   containers >= 0.5 && < 0.6,
                    network-transport >= 0.3 && < 0.4,
                    mtl,
                    network-transport-tcp >= 0.3 && < 0.4,
@@ -158,6 +160,7 @@ test-suite GenServerTests
                    derive,
                    network-transport >= 0.3 && < 0.4,
                    mtl,
+                   containers >= 0.5 && < 0.6,
                    network-transport-tcp >= 0.3 && < 0.4,
                    binary >= 0.5 && < 0.7,
                    network >= 2.3 && < 2.5,
