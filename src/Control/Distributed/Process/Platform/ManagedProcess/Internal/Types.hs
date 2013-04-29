@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE ExistentialQuantification  #-}
+{-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE StandaloneDeriving         #-}
@@ -53,6 +54,8 @@ data Message a =
 
 instance Serializable a => Binary (Message a) where
 deriving instance Eq a => Eq (Message a)
+deriving instance Show a => Show (Message a)
+
 deriving instance Show a => Show (Message a)
 
 data CallResponse a = CallResponse a
