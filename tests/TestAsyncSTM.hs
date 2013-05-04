@@ -181,7 +181,7 @@ remotableDecl [
 testAsyncRecursive :: TestResult Integer -> Process ()
 testAsyncRecursive result = do
     myNode <- processNodeId <$> getSelfPid
-    fib (myNode,3) >>= stash result
+    fib (myNode,6) >>= stash result
 
 tests :: LocalNode  -> [Test]
 tests localNode = [
@@ -234,13 +234,13 @@ tests localNode = [
              localNode True testAsyncCancelWith)
         , testCase "testAsyncRecursive"
             (delayedAssertion
-             "expected Fibonacci 3 to be evaluated, and value of 2 returned"
-             localNode 2 testAsyncRecursive)
+             "expected Fibonacci 6 to be evaluated, and value of 8 returned"
+             localNode 8 testAsyncRecursive)
       ]
   ]
 
 asyncStmTests :: NT.Transport -> IO [Test]
 asyncStmTests transport = do
-  localNode <- newLocalNode transport initRemoteTable
+  localNode <- newLocalNode transport $ __remoteTableDecl initRemoteTable
   let testData = tests localNode
   return testData
